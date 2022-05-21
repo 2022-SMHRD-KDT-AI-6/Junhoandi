@@ -17,4 +17,11 @@ pController pc = new pController();
 	public void exit(String c) {
 		
 	}
+	if(hp<50&&hp>31) {
+		System.out.println("배고파요ㅠㅠ");
+	}
+	if(hp<=30) {
+		System.out.println("너무배고파요ㅠㅠ");
+	}
+	
 }
