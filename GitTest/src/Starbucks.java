@@ -2,7 +2,7 @@
 public class Starbucks {
 
 	public static void main(String[] args) {
-		"스타벅스 금호DT점"
+		System.out.print("스타벅스 DT점");
 	}
 
 }
