@@ -4,11 +4,28 @@ public class pController {
 	private String id;
 	private String pw;
 	private String name;
-	private String hp;
-	private String lv;
-	private String exp;
+	private int hp;
+	private int lv;
+	private int exp;
 	private String con;
+	private int hgr;
+	private int slp;
+	
+	
+	public int getHgr() {
+		return hgr;
+	}
+	public void setHgr(int hgr) {
+		this.hgr = hgr;
+	}
+	public int getSlp() {
+		return slp;
+	}
+	public void setSlp(int slp) {
+		this.slp = slp;
+	}
 	private int time;
+	
 	public String getId() {
 		return id;
 	}
@@ -27,22 +44,22 @@ public class pController {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHp() {
+	public int getHp() {
 		return hp;
 	}
-	public void setHp(String hp) {
+	public void setHp(int hp) {
 		this.hp = hp;
 	}
-	public String getLv() {
+	public int getLv() {
 		return lv;
 	}
-	public void setLv(String lv) {
+	public void setLv(int lv) {
 		this.lv = lv;
 	}
-	public String getExp() {
+	public int getExp() {
 		return exp;
 	}
-	public void setExp(String exp) {
+	public void setExp(int exp) {
 		this.exp = exp;
 	}
 	public String getCon() {
@@ -57,16 +74,18 @@ public class pController {
 	public void setTime(int time) {
 		this.time = time;
 	}
-	public void signup(String id, String pw, String name) {
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-	}
-	public void status(String name, String lv, String hp, String con) {
-		this.name = name;
-		this.lv = lv;
-		this.hp = hp;
-		this.con = con;
-	}
+	
+	
+//	public pController (String id, String pw, String name) {
+//		this.id = id;
+//		this.pw = pw;
+//		this.name = name;
+//	}
+//	public pController(String name, int lv, int hp, String con) {
+//		this.name = name;
+//		this.lv = lv;
+//		this.hp = hp;
+//		this.con = con;
+//	}
 	
 }
