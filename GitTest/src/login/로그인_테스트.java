@@ -21,6 +21,13 @@ public class 로그인_테스트 {
 		// try구문안에서 선언되면 지역변수가 되기때문에!!!!
 		// finally구문에 닿기 위해서 맨 위로 빼는 작업을 진행했다.
 		Scanner sc = new Scanner(System.in);
+		level lv1 = new level(null, row, row, null);
+		lv1.setName("test");
+		lv1.setLv(1);
+		lv1.setHp(20);
+		lv1.setCon("좋음");
+		
+		
 		// 로그인 시 필요한 데이터?
 		// id,pw
 		// 입력받을 수 있게 코드 작성
@@ -106,7 +113,7 @@ public class 로그인_테스트 {
 				""";
 		for (int i = 0; i < art.length(); i++) {
 			System.out.print(art.charAt(i));
-			Thread.sleep(2);
+			//Thread.sleep(2);
 		}
 
 		String art1 = """
@@ -128,7 +135,7 @@ public class 로그인_테스트 {
 
 		for (int i = 0; i < art1.length(); i++) {
 			System.out.print(art1.charAt(i));
-			Thread.sleep(2);
+			//Thread.sleep(2);
 		}
 		
 		System.out.println("[파닥몬 키우기 로그인창]");
@@ -326,14 +333,20 @@ public class 로그인_테스트 {
 			
 			// 메뉴
 			
+			while(true) {
 			System.out.println("[1]밥 먹이기 || [2]잠자기 || [3]전투하기");
 			int ans1 = sc.nextInt();
 			
+			
 			if(ans1 == 1) {
-				
+				lv1.eat();
+			}else if(ans1 == 2) {
+				lv1.sleep();
+			}else if(ans1 ==3) {
+				System.out.println("전투하기");
 			}
 			
-			
+			}
 			
 			
 		}
