@@ -1,6 +1,6 @@
 
 
-public class patapicture3 {
+public class patapicture_3 {
 	public static void main(String[] args) throws InterruptedException {
 		String art3 = """
 	#%####(###(                                     (%##########,             

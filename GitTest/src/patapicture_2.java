@@ -1,5 +1,5 @@
 
-public class patapicture2 {
+public class patapicture_2 {
 
 	public static void main(String[] args) throws InterruptedException {
 		String art2 = """
