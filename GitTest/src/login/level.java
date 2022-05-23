@@ -18,6 +18,10 @@ public class level extends pataDTO {
 	public void eat() {
 		// πË∞Ì«ƒ +3
 		hgr += 3;
+		
+		
+		
+		
 		System.out.println("≥»≥»...∏¿¿÷¥Ÿ!!");
 		System.out.println("");
 

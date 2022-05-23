@@ -113,7 +113,7 @@ public class 로그인_테스트 {
 				""";
 		for (int i = 0; i < art.length(); i++) {
 			System.out.print(art.charAt(i));
-			//Thread.sleep(2);
+			Thread.sleep(2);
 		}
 
 		String art1 = """
@@ -135,7 +135,7 @@ public class 로그인_테스트 {
 
 		for (int i = 0; i < art1.length(); i++) {
 			System.out.print(art1.charAt(i));
-			//Thread.sleep(2);
+			Thread.sleep(2);
 		}
 		
 		System.out.println("[파닥몬 키우기 로그인창]");
@@ -339,6 +339,7 @@ public class 로그인_테스트 {
 			
 			
 			if(ans1 == 1) {
+				patpic1.eatingPata();
 				lv1.eat();
 			}else if(ans1 == 2) {
 				lv1.sleep();
