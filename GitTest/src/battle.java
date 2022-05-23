@@ -1,4 +1,4 @@
-package patamon;
+
 
 public class battle {
 	//전투하기 ?
