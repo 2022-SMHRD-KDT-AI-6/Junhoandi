@@ -10,8 +10,16 @@ public class pataDTO {
 	private String con;
 	private int hgr;
 	private int slp;
+	private int str;
 	
 	
+	
+	public int getStr() {
+		return str;
+	}
+	public void setStr(int str) {
+		this.str = str;
+	}
 	public int getHgr() {
 		return hgr;
 	}
