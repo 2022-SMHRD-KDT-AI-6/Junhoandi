@@ -97,5 +97,12 @@ public class pataDTO {
 		this.hp = hp;
 		this.con = con;
 	}
+	public pataDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	public void setstr() {
+		// TODO Auto-generated method stub
+		this.str= str;
+	}
 	
 }
