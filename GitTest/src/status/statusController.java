@@ -6,23 +6,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import login.MemberDto;
+
 public class statusController {
 	PreparedStatement psmt = null;
 	Connection conn = null;
 	ResultSet rs = null;
+	statusDTO sdto = new statusDTO();
 
 	public void getCon() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
-			String user = "cgi_8_0516_4";
-			String password = "smhrd4";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "hr";
+			String password = "hr";
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -40,23 +41,27 @@ public class statusController {
 			e.printStackTrace();
 		}
 	}
+	
 
-	public boolean show(statusDTO DTO) {
+	public statusDTO show(statusDTO DTO) {
 		getCon();
 		try {
-			String sql = "select p_name, p_lv, p_hp, p_con from dmon where p_name= '?'";
+			String sql = "select * from dmon where p_name= ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, DTO.getName());
 			rs = psmt.executeQuery();
-			if (rs != null) {
-				while (rs.next()) {
-					String name = rs.getString("p_name");
-					int lv = rs.getInt("p_lv");
-					int hp = rs.getInt("p_hp");
-					String con = rs.getString("p_con");
-					DTO = new statusDTO(name, lv, hp, con);
-				}
+
+			while (rs.next()) {
+				String name = rs.getString("p_name");
+				int lv = rs.getInt("p_lv");
+				int hp = rs.getInt("p_hp");
+				String con = rs.getString("p_con");
+				int exp = rs.getInt("p_exp");
+				int hgr = rs.getInt("p_hgr");
+				int slp = rs.getInt("p_slp");
+				
+				DTO = new statusDTO(name, hp, lv, exp, con, hgr, slp);
 			}
 		} catch (SQLException e) {
 			System.out.println();
@@ -64,6 +69,27 @@ public class statusController {
 		} finally {
 			close();
 		}
-		return true;
+		return DTO;
 	}
-}
+	
+//	public statusDTO update(statusDTO dto) {
+//		getCon();
+//		try {
+//			String updateQuery = "update dmon set p_hgr=? where p_name = ?";
+//			psmt = conn.prepareStatement(updateQuery);
+//			psmt.setInt(1, dto.getHgr()+2);
+//			psmt.setString(2, dto.getName());
+//
+//		} catch (SQLException e) {
+//			System.out.println("연결 실패");
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return ;
+//	}
+
+
+	
+	}
+

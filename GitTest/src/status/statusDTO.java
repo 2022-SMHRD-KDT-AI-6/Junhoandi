@@ -80,5 +80,17 @@ public class statusDTO {
 		this.con = con;
 
 	}
+	public statusDTO(String name, int hp, int lv, int exp, String con, int hgr, int slp) {
+		this.name = name;
+		this.hp = hp;
+		this.lv = lv;
+		this.exp = exp;
+		this.con = con;
+		this.hgr = hgr;
+		this.slp = slp;
+	}
+	public statusDTO(int hgr) {
+		this.hgr = hgr;
+	}
 
 }
