@@ -26,7 +26,7 @@ public class battle extends pataDTO{
 		int picohp = 30;	// 피코데빌몬의 체력.. 몇으로??
 		int picost ;	//피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
 		int array[] = new int[10];
-
+		
 		// //전투하기 ?
 	
 		// 적 생성.
@@ -38,7 +38,7 @@ public class battle extends pataDTO{
 
 		System.out.println("  피코 데빌몬이 등장했다!");
 
-		while (true) {
+		while (pata.getHp() <=0) {
 			if(picohp <=0) {
 				System.out.println("  와~ 피코데빌몬을 이겼다!!!!!");
 			}
@@ -57,13 +57,16 @@ public class battle extends pataDTO{
 				System.out.println("       피코데빌몬과 전투 시작!!!!");
 				System.out.println();
 				System.out.println("============== 사용할 기술을 선택하세요 ==============");
+				
 				while (true) {
 					System.out.println(" [1]몸통박치기 [2]공기팡 [3]웅크리기");
 					int sel2 = sc.nextInt();
 
 					if (sel2 == 1) {
 						// 몸통박치기
-						System.out.println("       몸통박치기!!       ");
+						System.out.println("============== 사용할 기술을 선택하세요 ==============");
+						System.out.println();
+						System.out.println("              몸통박치기!!       ");
 						System.out.println();
 
 						// damage = patask1 + str
@@ -71,17 +74,15 @@ public class battle extends pataDTO{
 						airshot += 1; // 공기팡 가능
 					    damage = patask1 + pata.getStr();
 
-						System.out.println("  피코 데빌몬 에게 " + damage + " 의 피해를 입혔다."+"(남은HP :"+picohp+")");
-						System.out.println();
+						System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다."+"(남은HP :"+picohp+")");
 						picohp -= damage;
 						
 						int dam = rd.nextInt(10)+1;
-						System.out.println("  피코 데빌몬의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
 						System.out.println("===============================================");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
-						System.out.println();
 						pata.setHp(-dam);
 						//hp -= dam;
 
@@ -161,45 +162,43 @@ public class battle extends pataDTO{
 												""";
 							for (int i = 0; i < art3.length(); i++) {
 								System.out.print(art3.charAt(i));
-								Thread.sleep(2);
+								Thread.sleep(1);
 							}
 							 damage = pata.getStr()+2;
 //							damage = str + 2;
-							System.out.println("  공기~~~~~~~~팡!!!!!!!");
+							System.out.println("          공기~~~~~~~~팡!!!!!!!");
 							System.out.println();
-							System.out.println("  피코 데빌몬 에게 " + damage + " 의 피해를 입혔다."+"(남은HP :"+picohp+")");
 							System.out.println();
 							airshot -= 1;
 							
-							System.out.println("  피코 데빌몬 에게 " + damage + " 의 피해를 입혔다."+"(남은HP :"+picohp+")");
+							System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다."+"(남은HP :"+picohp+")");
 							System.out.println();
 							picohp -= damage;
 							
 							int dam = rd.nextInt(10)+1;
-							System.out.println("  피코 데빌몬의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+							System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
 							System.out.println("===============================================");
 							System.out.println("                   ㅣ");
 							System.out.println("                   ㅣ");
 							System.out.println("                   ㅣ");
-							System.out.println();
 							pata.setHp(-dam);
 							//hp -= dam;
 							System.out.println("============== 사용할 기술을 선택하세요 ==============");
 						}
 
 					} else {
-						System.out.println("  파닥몬이 몸을 웅크려서 체력을 회복했다.");
+						System.out.println();
+						System.out.println("     파닥몬이 몸을 웅크려서 체력을 회복했다.");
 						// 웅크리기
 						pata.setHp(+10);
 						airshot += 1;					
 						
 						int dam = rd.nextInt(10)+1;
-						System.out.println("  피코 데빌몬의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+						System.out.println("- 피코 데빌몬의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
 						System.out.println("===============================================");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
-						System.out.println();
 						pata.setHp(-dam);
 						//hp -= dam;
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
@@ -214,9 +213,9 @@ public class battle extends pataDTO{
 				pata.setHgr(-3);
 				break;
 			}
-
 		}
-
+		//while문 끝나는 구간 = 파닥몬 피0 = 게임끝
+		System.out.println("     파닥몬이 피코데빌몬에게 죽었습니다..안돼~~ㅠㅠ");
 	}
 	// }
 }
