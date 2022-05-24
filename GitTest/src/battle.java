@@ -220,5 +220,5 @@ public class battle extends pataDTO{
 	
 		
 	}
-	// }
 }
+    
