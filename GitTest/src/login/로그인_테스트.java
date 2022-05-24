@@ -11,7 +11,6 @@ public class 로그인_테스트 {
 
 	public static void main(String[] args) throws InterruptedException {
 //aa
-		int speed = 1;
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -20,6 +19,7 @@ public class 로그인_테스트 {
 		boolean isSearch = false;
 		// try구문안에서 선언되면 지역변수가 되기때문에!!!!
 		// finally구문에 닿기 위해서 맨 위로 빼는 작업을 진행했다.
+		int speed = 1;
 		Scanner sc = new Scanner(System.in);
 		level lv1 = new level(null, row, row, null);
 		lv1.setName("test");
@@ -342,6 +342,7 @@ public class 로그인_테스트 {
 				patpic1.eatingPata();
 				lv1.eat();
 			}else if(ans1 == 2) {
+				patpic1.sleepingPata();
 				lv1.sleep();
 			}else if(ans1 ==3) {
 
