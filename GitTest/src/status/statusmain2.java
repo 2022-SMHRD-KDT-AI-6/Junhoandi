@@ -8,7 +8,7 @@ import java.sql.SQLException;
 //import java.sql.ResultSet;
 import java.util.Scanner;
 
-import login.level;
+import login.totalmethod;
 
 public class statusmain2 {
 
@@ -20,7 +20,7 @@ public class statusmain2 {
 		boolean isStart = false;
 		int row = 0;
 		boolean isSearch = false;
-		level lv1 = new level(null, row, row, null);
+		totalmethod lv1 = new totalmethod(null, row, row, null);
 		lv1.setName("test");
 		lv1.setLv(1);
 		lv1.setHp(20);

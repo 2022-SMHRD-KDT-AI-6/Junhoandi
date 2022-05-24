@@ -21,7 +21,7 @@ public class 로그인_테스트 {
 		// finally구문에 닿기 위해서 맨 위로 빼는 작업을 진행했다.
 		int speed = 1;
 		Scanner sc = new Scanner(System.in);
-		level lv1 = new level(null, row, row, null);
+		totalmethod lv1 = new totalmethod(null, row, row, null);
 		lv1.setName("test");
 		lv1.setLv(1);
 		lv1.setHp(20);
