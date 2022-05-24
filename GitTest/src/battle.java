@@ -83,6 +83,7 @@ public class battle extends pataDTO{
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
 							System.out.println("            -  전투 끝 -");
+							System.out.println("===============================================");
 							break;
 						}
 						System.out.println("                   ㅣ");
@@ -186,6 +187,7 @@ public class battle extends pataDTO{
 								System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 								System.out.println();
 								System.out.println("            -  전투 끝 -");
+								System.out.println("===============================================");
 								break;
 							}
 							System.out.println("                   ㅣ");
@@ -210,6 +212,7 @@ public class battle extends pataDTO{
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
 							System.out.println("            -  전투 끝 -");
+							System.out.println("===============================================");
 							break;
 						}
 						System.out.println("                   ㅣ");
@@ -231,6 +234,7 @@ public class battle extends pataDTO{
 				break;
 			}
 		}
+	
 		
 	}
 	// }
