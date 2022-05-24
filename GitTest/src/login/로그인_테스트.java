@@ -334,7 +334,7 @@ public class 로그인_테스트 {
 			// 메뉴
 			
 			while(true) {
-			System.out.println("[1]밥 먹이기 || [2]잠자기 || [3]전투하기");
+			System.out.println("[1]밥 먹이기 || [2]잠자기 || [3]전투하기 || [4]훈련하기");
 			int ans1 = sc.nextInt();
 			
 			
@@ -344,7 +344,11 @@ public class 로그인_테스트 {
 			}else if(ans1 == 2) {
 				lv1.sleep();
 			}else if(ans1 ==3) {
-				System.out.println("전투하기");
+
+				lv1.battle();
+				
+			}else if(ans1 ==4) {
+				lv1.train();
 			}
 			
 			}
