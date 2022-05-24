@@ -6,7 +6,7 @@ public class battle extends pataDTO{
 
 	public battle(String name, int lv, int hp, String con) {
 		super(name, lv, hp, con);
-		// TODO Auto-generated constructor stub
+		
 	}
 //		********** 수정필수!! 공격력 등 변수들 콘솔보이게하기위해 임의로 해놓음 따로 지정해야합니다 ~ 
 //  현재 피코데빌몬과 전투에서 이겼을때 상태창으로 돌아가는방법 생각.....해야함	
@@ -27,29 +27,14 @@ public class battle extends pataDTO{
 		int picost ;	//피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
 		int array[] = new int[10];
 		
-		// //전투하기 ?
-	
-		// 적 생성.
-		// 적의 체력 까기 / 공격력 (변수 str)
-		// 레벨업하면 공격력,hp 상승.
-		// 적 처치시 배고픔 및 피곤함 경험치 상승
-
-		// public void battle() {
-
 		System.out.println("  피코 데빌몬이 등장했다!");
 		
 		while (true) {
 			
-			System.out.println("[1] 전투한다 [2] 도망간다");
+			System.out.println("[1] 전투한다 [2] 그냥 못본척한다.");
 			int sel = sc.nextInt();
 			System.out.println();
-//			if(pata.getHp() <= 0) {
-//				System.out.println("피코데빌몬과 전투에서 패배했습니다 ㅠㅠ");
-//				System.out.println("배고픔과 피로도가 3 증가합니다.");
-//				pata.setSlp(-3);
-//				pata.setHgr(-3);
-//				break;
-//			}
+
 			if (sel == 1 ) {
 
 				System.out.println("       피코데빌몬과 전투 시작!!!!");
@@ -58,7 +43,7 @@ public class battle extends pataDTO{
 				
 				while (true) {
 					
-					System.out.println(" [1]몸통박치기 [2]공기팡 [3]웅크리기");
+					System.out.println(" [1]몸통박치기 [2]공기팡 [3]웅크리기 [4]도망간다");
 					int sel2 = sc.nextInt();
 
 					if (sel2 == 1) {
@@ -198,7 +183,7 @@ public class battle extends pataDTO{
 							System.out.println("============== 사용할 기술을 선택하세요 ==============");
 						}
 
-					} else {
+					} else if(sel ==3){
 						System.out.println();
 						System.out.println("     파닥몬이 몸을 웅크려서 체력을 회복했다.");
 						// 웅크리기
@@ -223,14 +208,12 @@ public class battle extends pataDTO{
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
 					}
 
+					break;
 				}
-				
+				System.out.println();
 				
 			} else {
-				System.out.println("== 피코데빌몬 과 전투에서 도망쳤습니다 ==");
-				System.out.println(" ※ 피로도와 배고픔이 3씩 올라갑니다. ");
-				pata.setSlp(-3);
-				pata.setHgr(-3);
+				System.out.println("그냥 못본척한다");
 				break;
 			}
 		}
@@ -239,4 +222,3 @@ public class battle extends pataDTO{
 	}
 	// }
 }
-
