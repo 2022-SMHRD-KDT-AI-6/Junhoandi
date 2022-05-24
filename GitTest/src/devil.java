@@ -64,7 +64,7 @@ public class devil extends pataDTO{
 
 									int dam = rd.nextInt(15) + 1;
 									pata.setHp(-dam);
-									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
+									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 									System.out.println("===============================================");
 									if (devilhp <= 0) {
 										System.out.println("    와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
@@ -168,7 +168,7 @@ public class devil extends pataDTO{
 										System.out.println();
 										int dam = rd.nextInt(15) + 1;
 										pata.setHp(-dam);
-										System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
+										System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 										System.out.println("===============================================");
 										if (devilhp <= 0) {
 											System.out.println("    와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
@@ -194,7 +194,7 @@ public class devil extends pataDTO{
 									System.out.println();
 									int dam = rd.nextInt(15) + 1;
 									pata.setHp(-dam);
-									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
+									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 									System.out.println("===============================================");
 									if (devilhp <= 0) {
 										System.out.println("        와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
