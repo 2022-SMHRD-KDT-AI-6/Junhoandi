@@ -12,7 +12,6 @@ public class totalmethod extends pataDTO {
 	int picohp = 30;	// 피코데빌몬의 체력.. 몇으로??
 	int picost ;	//피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
 	int array[] = new int[10];
-	
 	int devilhp = 50; //데빌몬 피 설정
 	
 	
@@ -145,7 +144,7 @@ public class totalmethod extends pataDTO {
 				System.out.println("============== 사용할 기술을 선택하세요 ==============");
 
 				while (true) {
-
+					
 					System.out.println(" [1]몸통박치기 [2]공기팡 [3]웅크리기");
 					int sel2 = sc.nextInt();
 
@@ -168,6 +167,7 @@ public class totalmethod extends pataDTO {
 						pata.setHp(-dam);
 						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 						System.out.println("===============================================");
+					
 						if (picohp <= 0) {
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
@@ -177,7 +177,7 @@ public class totalmethod extends pataDTO {
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
-						pata.setHp(-dam);
+						
 						// hp -= dam;
 
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
@@ -189,7 +189,7 @@ public class totalmethod extends pataDTO {
 							System.out.println("-- 공기를 모으는 동안 다른기술을 사용해주세요. --");
 							System.out.println();
 						} else {
-							// 공기팡
+							//*****mp3 파일 자리 // 공기팡
 							String art3 = """
 									#%####(###(                                     (%##########,
 									       .#%####(#(##(                                  (##########
@@ -281,7 +281,7 @@ public class totalmethod extends pataDTO {
 							System.out.println("                   ㅣ");
 							System.out.println("                   ㅣ");
 							System.out.println("                   ㅣ");
-							pata.setHp(-dam);
+						
 							// hp -= dam;
 							System.out.println("============== 사용할 기술을 선택하세요 ==============");
 						}
@@ -307,7 +307,7 @@ public class totalmethod extends pataDTO {
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
-						pata.setHp(-dam);
+						
 						// hp -= dam;
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
 						System.out.println();
@@ -441,20 +441,22 @@ public class totalmethod extends pataDTO {
 									devilhp -= damage;
 									System.out.println("-     데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(데빌몬의 남은HP :" + devilhp + ")");
 
-									int dam = rd.nextInt(15) + 1;
-									pata.setHp(-dam);
-									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
+									int devildam = rd.nextInt(19) + 1;
+									pata.setHp(-devildam);
+									System.out.println("-     데빌몬 의 공격!! " + devildam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 									System.out.println("===============================================");
 									if (devilhp <= 0) {
 										System.out.println("    와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 										System.out.println();
 										System.out.println("            -  전투 끝 -");
 										break;
+						//게임 엔딩 				
+										
 									}
 									System.out.println("                   ㅣ");
 									System.out.println("                   ㅣ");
 									System.out.println("                   ㅣ");
-									pata.setHp(-dam);
+									
 									// hp -= dam;
 
 									System.out.println("============== 사용할 기술을 선택하세요 ==============");
@@ -466,7 +468,7 @@ public class totalmethod extends pataDTO {
 										System.out.println("-- 공기를 모으는 동안 다른기술을 사용해주세요. --");
 										System.out.println();
 									} else {
-										// 공기팡
+										//*****mp3 파일 자리 공기팡
 										String art3 = """
 												#%####(###(                                     (%##########,
 												       .#%####(#(##(                                  (##########
@@ -554,11 +556,12 @@ public class totalmethod extends pataDTO {
 											System.out.println();
 											System.out.println("            -  전투 끝 -");
 											break;
+								// 게임엔딩			
+											
 										}
 										System.out.println("                   ㅣ");
 										System.out.println("                   ㅣ");
 										System.out.println("                   ㅣ");
-										pata.setHp(-dam);
 										// hp -= dam;
 										System.out.println("============== 사용할 기술을 선택하세요 ==============");
 									}
@@ -583,7 +586,9 @@ public class totalmethod extends pataDTO {
 					}
 					else {
 						System.out.println();
-						System.out.println("파닥몬의 레벨이 낮아서 도전할수 없습니다.");
+						System.out.println("=== 파닥몬의 레벨이 낮아서 도전할수 없습니다 ==== ");
+						System.out.println();
+						System.out.println("             메인으로 돌아갑니다. ");
 						break;
 					}
 				
