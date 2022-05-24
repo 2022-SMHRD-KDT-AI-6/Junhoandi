@@ -11,9 +11,6 @@ public class battle extends pataDTO{
 //		********** 수정필수!! 공격력 등 변수들 콘솔보이게하기위해 임의로 해놓음 따로 지정해야합니다 ~ 
 //  현재 피코데빌몬과 전투에서 이겼을때 상태창으로 돌아가는방법 생각.....해야함	
 	
-	
-	
-	
 	public static void main(String[] args) throws InterruptedException {
 
 		Scanner sc = new Scanner(System.in);
@@ -26,9 +23,9 @@ public class battle extends pataDTO{
 		int picohp = 300;	// 피코데빌몬의 체력.. 몇으로??
 		int picost ;	//피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
 		int array[] = new int[10];
-		int end =1;
 		int patahp=50;	
-		int testexp = 10; // 피코데빌몬의 경험치량 조정.
+	// patahp는 임의로 실험으로 설정했기때문에 꼭!!!!!! 마지막에 get으로 불러서 설정해줘야합니다!! 
+		int picoexp = 10; // 피코데빌몬의 경험치량 조정.
 
 
 			System.out.println("             피코데빌몬과 전투 시작!!!!");
@@ -36,10 +33,7 @@ public class battle extends pataDTO{
 			System.out.println("============== 사용할 기술을 선택하세요 ==============");
 
 			while (true) {
-				if(patahp<0) {
-					System.out.println("1번 if문");
-					break;
-				}
+				
 				System.out.println(" [1]몸통박치기 [2]공기팡 [3]웅크리기");
 				int sel2 = sc.nextInt();
 
@@ -50,8 +44,7 @@ public class battle extends pataDTO{
 					System.out.println("              몸통박치기!!       ");
 					System.out.println();
 
-					// damage = patask1 + str
-					// pico의 체력 - damage 출력
+		
 					airshot += 1; // 공기팡 가능
 					damage = patask1 + pata.getStr();
 
@@ -62,19 +55,21 @@ public class battle extends pataDTO{
 					patahp -=dam;
 					System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + patahp + ")");
 					System.out.println("===============================================");
-					if (patahp<0) {
-						System.out.println("              2번 if문");
+					if (patahp<=0) {
+						System.out.println();
 						System.out.println("            적에게 패배했습니다.......");
 						System.out.println();
-						//여기에 패배시 배고픔이랑 피로도 증가????
+						System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+						pata.setHgr(-10);
+						pata.setSlp(+10);
 						break;
 					}
 					if (picohp <= 0) {
 						System.out.println("       와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 						System.out.println();
-						System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+testexp+" 획득!!");
+						System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
 						//아래의 경험치는 임의로 조정
-						//setexp(+10); ?? 
+						pataexp +=10; 
 						System.out.println();
 						break;
 					}
@@ -172,28 +167,40 @@ public class battle extends pataDTO{
 						picohp -= damage;
 						System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(피코데빌몬의 남은HP :" + picohp + ")");
 						System.out.println();
+						
 						int dam = rd.nextInt(10) + 1;
 						pata.setHp(-dam);
+						
 						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + patahp + ")");
 						System.out.println("===============================================");
+						if (patahp<=0) {
+							System.out.println();
+							System.out.println("            적에게 패배했습니다.......");
+							System.out.println();
+							System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+							pata.setHgr(-10);
+							pata.setSlp(+10);
+							break;
+						}
 						if (picohp <= 0) {
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
-							System.out.println("            -  전투 끝 -");
+							System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
+							pata.setExp(+10); 
+							System.out.println();
 							break;
 						}
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 						System.out.println("                   ㅣ");
 					
-						// hp -= dam;
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
 					}
 
 				} else {
 					System.out.println();
 					System.out.println("     파닥몬이 몸을 웅크려서 체력을 회복했다.");
-					// 웅크리기
+					
 					pata.setHp(+3);
 					airshot += 1;
 					System.out.println("     파닥몬의 체력 3 회복!!! "+"(파닥몬의 HP :"+pata.getHp()+")");
@@ -202,27 +209,39 @@ public class battle extends pataDTO{
 					pata.setHp(-dam);
 					System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + patahp + ")");
 					System.out.println("===============================================");
+					if (patahp<=0) {
+						System.out.println();
+						System.out.println("            적에게 패배했습니다.......");
+						System.out.println();
+						System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+						pata.setHgr(-10);
+						pata.setSlp(+10);
+						break;
+					}
 					if (picohp <= 0) {
 						System.out.println("        와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 						System.out.println();
-						System.out.println("                -  전투 끝 -");
+						System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
+						pata.setExp(+10); 
+						System.out.println();
 						break;
 					}
 					System.out.println("                   ㅣ");
 					System.out.println("                   ㅣ");
 					System.out.println("                   ㅣ");
 					
-					// hp -= dam;
+				
 					System.out.println("============== 사용할 기술을 선택하세요 ==============");
 					System.out.println();
 				}
 
 			}
-			System.out.println("            메인으로 돌아갑니다.");
+			System.out.println();
+			System.out.println("               메인으로 돌아갑니다.");
 			System.out.println();
 			System.out.println();	
 			System.out.println("===============================================");
-	    	System.out.println("           이젠 뭘할까...?");	
+	    	System.out.println("               이젠 뭘할까...?");	
 	    	System.out.println();	
 	
 		

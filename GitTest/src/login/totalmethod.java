@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class totalmethod extends pataDTO {
 	
 
-	int patask1 = 9; // 몸통박치기, (값을 어떻게설정해야하지?)
-	int airshot = 1; //공기팡은 바로바로 못씀.
+	int patask1 = 9;    // 몸통박치기, (값을 어떻게설정해야하지?)
+	int airshot = 1;    //공기팡은 바로바로 못씀. (공기팡의 스택)
 	int damage = 1 ;
 	int picohp = 30;	// 피코데빌몬의 체력.. 몇으로??
-	int picost ;	//피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
+	int picost ;	    //피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
+	int picoexp = 10;   //피코데빌몬이 주는 경험치 량
 	int array[] = new int[10];
-	int devilhp = 50; //데빌몬 피 설정
-	
+	int devilhp = 50;   //데빌몬 피 설정
 	
 	public totalmethod(String name, int lv, int hp, String con) {
 		super(name, lv, hp, con);
@@ -167,11 +167,22 @@ public class totalmethod extends pataDTO {
 						pata.setHp(-dam);
 						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 						System.out.println("===============================================");
-					
+						if (pata.getHp()<=0) {
+							System.out.println();
+							System.out.println("            적에게 패배했습니다.......");
+							System.out.println();
+							System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+							pata.setHgr(-10);
+							pata.setSlp(+10);
+							break;
+						}
 						if (picohp <= 0) {
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
-							System.out.println("            -  전투 끝 -");
+							System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
+							//아래의 경험치는 임의로 조정
+							exp +=10; 
+							System.out.println();
 							break;
 						}
 						System.out.println("                   ㅣ");
@@ -272,10 +283,22 @@ public class totalmethod extends pataDTO {
 							pata.setHp(-dam);
 							System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 							System.out.println("===============================================");
+							if (pata.getHp()<=0) {
+								System.out.println();
+								System.out.println("            적에게 패배했습니다.......");
+								System.out.println();
+								System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+								pata.setHgr(-10);
+								pata.setSlp(+10);
+								break;
+							}
 							if (picohp <= 0) {
 								System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 								System.out.println();
-								System.out.println("            -  전투 끝 -");
+								System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
+								//아래의 경험치는 임의로 조정
+								exp +=10; 
+								System.out.println();
 								break;
 							}
 							System.out.println("                   ㅣ");
@@ -298,10 +321,22 @@ public class totalmethod extends pataDTO {
 						pata.setHp(-dam);
 						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 						System.out.println("===============================================");
+						if (pata.getHp()<=0) {
+							System.out.println();
+							System.out.println("            적에게 패배했습니다.......");
+							System.out.println();
+							System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+							pata.setHgr(-10);
+							pata.setSlp(+10);
+							break;
+						}
 						if (picohp <= 0) {
 							System.out.println("        와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
-							System.out.println("                -  전투 끝 -");
+							System.out.println("    피코데빌몬에게 이겨서 많은경험치를 얻습니다."+"경험치+"+picoexp+" 획득!!");
+							//아래의 경험치는 임의로 조정
+							exp +=10; 
+							System.out.println();
 							break;
 						}
 						System.out.println("                   ㅣ");
@@ -314,11 +349,12 @@ public class totalmethod extends pataDTO {
 					}
 
 				}
-				System.out.println("            메인으로 돌아갑니다.");
+				System.out.println();
+				System.out.println("               메인으로 돌아갑니다.");
 				System.out.println();
 				System.out.println();	
 				System.out.println("===============================================");
-		    	System.out.println("           이젠 뭘할까...?");	
+		    	System.out.println("               이젠 뭘할까...?");	
 		    	System.out.println();	
 
 	}
@@ -330,9 +366,10 @@ public class totalmethod extends pataDTO {
 
 		
 		
-			System.out.println("[경고!!!!!] 데빌몬과 전투합니다. 전투에서 패배하면 게임이 끝납니다. 계속하시겠습니까?");
+			System.out.println(" [경고!!!!!] 데빌몬과 전투합니다. 전투에서 패배하면 게임이 끝납니다. 계속하시겠습니까?");
 			System.out.println("          <     파닥몬의 레벨이 5 이상일때 도전가능    >");
 			int boss = sc.nextInt();
+			
 			if(boss==1) {
 				while(true) {
 					if(pata.getLv()>5) {
@@ -445,12 +482,22 @@ public class totalmethod extends pataDTO {
 									pata.setHp(-devildam);
 									System.out.println("-     데빌몬 의 공격!! " + devildam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 									System.out.println("===============================================");
+		//데빌몬에게 패배한 코드	
+									if (pata.getHp()<=0) {
+										System.out.println();
+										System.out.println("            적에게 패배했습니다.......");
+										System.out.println();
+										System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+										pata.setHgr(-10);
+										pata.setSlp(+10);
+										break;
+									}
 									if (devilhp <= 0) {
 										System.out.println("    와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 										System.out.println();
-										System.out.println("            -  전투 끝 -");
+										System.out.println("           - 디지몬 월드의 평화를 되찾았다 -");
+						//게임 엔딩 	파트			
 										break;
-						//게임 엔딩 				
 										
 									}
 									System.out.println("                   ㅣ");
@@ -551,12 +598,22 @@ public class totalmethod extends pataDTO {
 										pata.setHp(-dam);
 										System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 										System.out.println("===============================================");
+						//데빌몬에게 패배한 코드	
+										if (pata.getHp()<=0) {
+											System.out.println();
+											System.out.println("            적에게 패배했습니다.......");
+											System.out.println();
+											System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+											pata.setHgr(-10);
+											pata.setSlp(+10);
+											break;
+										}
 										if (devilhp <= 0) {
 											System.out.println("    와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 											System.out.println();
-											System.out.println("            -  전투 끝 -");
+											System.out.println("           - 디지몬 월드의 평화를 되찾았다 - ");
 											break;
-								// 게임엔딩			
+							// 게임엔딩			
 											
 										}
 										System.out.println("                   ㅣ");
@@ -578,10 +635,20 @@ public class totalmethod extends pataDTO {
 									pata.setHp(-dam);
 									System.out.println("-     데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + pata.getHp() + ")");
 									System.out.println("===============================================");
+					//데빌몬에게 패배한 코드	
+									if (pata.getHp()<=0) {
+										System.out.println();
+										System.out.println("            적에게 패배했습니다.......");
+										System.out.println();
+										System.out.println("        포만감이 10 줄어들고 피로도가 10 증가합니다. ");
+										pata.setHgr(-10);
+										pata.setSlp(+10);
+										break;
+									}
 									if (devilhp <= 0) {
 										System.out.println("        와~~~~     데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 										System.out.println();
-										System.out.println("                -  전투 끝 -");
+										System.out.println("           - 디지몬 월드의 평화를 되찾았다 - ");
 										break;
 					}
 					else {
