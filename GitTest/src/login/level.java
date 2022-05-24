@@ -76,7 +76,7 @@ public class level extends pataDTO {
 		pataDTO pata = new pataDTO(getName(), getLv(), getHp(), getCon()); // 확인
 
 		int patask1 = 9; // 몸통박치기, (값을 어떻게설정해야하지?)
-		int airshot = 1; // 공기팡은 바로바로 못씀.
+		int airshot = 1; // 공기팡은 바로바로 못씀. 게이지.
 		int damage = 1;
 		int picohp = 30; // 피코데빌몬의 체력.. 몇으로??
 		int picost; // 피코데빌몬 공격력 변수. 현재는 10의 랜덤수로 돌리는중
@@ -89,26 +89,15 @@ public class level extends pataDTO {
 		// 레벨업하면 공격력,hp 상승.
 		// 적 처치시 배고픔 및 피곤함 경험치 상승
 
-		// public void battle() {
+	
 
-		System.out.println("  피코 데빌몬이 등장했다!");
-
-//		while (true) {
-
-//			System.out.println("[1] 전투한다 [2] 도망간다");
+     		System.out.println("             피코 데빌몬이 등장했다!!");
 			System.out.println();
 			System.out.println("===============================================");
 			System.out.println();
-			//			if(pata.getHp() <= 0) {
-//				System.out.println("피코데빌몬과 전투에서 패배했습니다 ㅠㅠ");
-//				System.out.println("배고픔과 피로도가 3 증가합니다.");
-//				pata.setSlp(-3);
-//				pata.setHgr(-3);
-//				break;
-//			}
-//			if (sel == 1) {
 
-				System.out.println("       피코데빌몬과 전투 시작!!!!");
+
+				System.out.println("             피코데빌몬과 전투 시작!!!!");
 				System.out.println();
 				System.out.println("============== 사용할 기술을 선택하세요 ==============");
 
@@ -130,10 +119,11 @@ public class level extends pataDTO {
 						damage = patask1 + pata.getStr();
 
 						picohp -= damage;
-						System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(남은HP :" + picohp + ")");
+						System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(피코데빌몬의 남은HP :" + picohp + ")");
 
 						int dam = rd.nextInt(10) + 1;
-						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+						pata.setHp(-dam);
+						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 						System.out.println("===============================================");
 						if (picohp <= 0) {
 							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
@@ -233,10 +223,11 @@ public class level extends pataDTO {
 							airshot -= 1;
 
 							picohp -= damage;
-							System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(남은HP :" + picohp + ")");
+							System.out.println("- 피코 데빌몬 에게 " + damage + " 의 피해를 입혔다." + "(피코데빌몬의 남은HP :" + picohp + ")");
 							System.out.println();
 							int dam = rd.nextInt(10) + 1;
-							System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+							pata.setHp(-dam);
+							System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 							System.out.println("===============================================");
 							if (picohp <= 0) {
 								System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
@@ -256,16 +247,18 @@ public class level extends pataDTO {
 						System.out.println();
 						System.out.println("     파닥몬이 몸을 웅크려서 체력을 회복했다.");
 						// 웅크리기
-						pata.setHp(+10);
+						pata.setHp(+3);
 						airshot += 1;
-
+						System.out.println("     파닥몬의 체력 3 회복!!! "+"(파닥몬의 HP :"+pata.getHp()+")");
+						System.out.println();
 						int dam = rd.nextInt(10) + 1;
-						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ");
+						pata.setHp(-dam);
+						System.out.println("- 피코 데빌몬 의 공격!! " + dam + " 의 피해를 받았다ㅠㅠ"+ "(파닥몬의 남은HP :" + getHp() + ")");
 						System.out.println("===============================================");
 						if (picohp <= 0) {
-							System.out.println("    와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
+							System.out.println("        와~~~~ 피코데빌몬에게 이겼다!!!ㅎㅎㅎ ");
 							System.out.println();
-							System.out.println("            -  전투 끝 -");
+							System.out.println("                -  전투 끝 -");
 							break;
 						}
 						System.out.println("                   ㅣ");
@@ -274,15 +267,15 @@ public class level extends pataDTO {
 						pata.setHp(-dam);
 						// hp -= dam;
 						System.out.println("============== 사용할 기술을 선택하세요 ==============");
+						System.out.println();
 					}
 
 				}
-
-
-			
+				System.out.println("            메인으로 돌아갑니다.");
+				System.out.println();
 				System.out.println();	
 				System.out.println("===============================================");
-		    	System.out.println();	
+		    	System.out.println("           이젠 뭘할까...?");	
 		    	System.out.println();	
 
 	}
