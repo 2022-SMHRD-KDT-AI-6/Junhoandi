@@ -11,7 +11,7 @@ public class 로그인_테스트 {
 
 	public static void main(String[] args) throws InterruptedException {
 //aa
-		
+		int speed = 1;
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -51,7 +51,7 @@ public class 로그인_테스트 {
 							""";
 			for (int i = 0; i < art4.length(); i++) {
 			System.out.print(art4.charAt(i));
-			Thread.sleep(2);
+			Thread.sleep(speed);
 			}
 		
 		
@@ -135,7 +135,7 @@ public class 로그인_테스트 {
 
 		for (int i = 0; i < art1.length(); i++) {
 			System.out.print(art1.charAt(i));
-			Thread.sleep(2);
+			Thread.sleep(speed);
 		}
 		
 		System.out.println("[파닥몬 키우기 로그인창]");

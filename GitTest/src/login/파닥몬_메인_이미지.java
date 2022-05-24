@@ -2,6 +2,7 @@ package login;
 
 public class 파닥몬_메인_이미지 {
 
+	int speed = 1;
 		public String mainPata() throws InterruptedException {
 			String art = """
 	                                                                   .=+*#*:
@@ -58,7 +59,7 @@ public class 파닥몬_메인_이미지 {
 					""";
 		for (int i = 0; i < art.length(); i++) {
 			System.out.print(art.charAt(i));
-			Thread.sleep(2);
+			Thread.sleep(speed);
 		}
 		return art;
 			
@@ -123,7 +124,7 @@ public class 파닥몬_메인_이미지 {
 					""";
 		for (int i = 0; i < art1.length(); i++) {
 			System.out.print(art1.charAt(i));
-			Thread.sleep(2);
+			Thread.sleep(speed);
 		}
 		return art1;
 			
